@@ -66,7 +66,7 @@ export const getDesignTokens = (mode: string) => ({
           hover: blue[600],
         },
         background: {
-          main: '#ffffff',
+          main: '#F0F0F0',
           button: blue[500],
           buttonHover: blue[700],
         },

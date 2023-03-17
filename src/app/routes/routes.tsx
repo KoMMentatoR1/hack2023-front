@@ -5,6 +5,7 @@ import Profile from '../../pages/Profile/Profile'
 import ForgotPass from '../../pages/ForgotPass/ForgotPass'
 import SwitchPass from '../../pages/SwitchPass/SwitchPass'
 import SecurityPage from '../../pages/SecurityPage/SecurityPage'
+import MainPage from '../../pages/MainPage/MainPage'
 
 interface IRouter {
   path: string
@@ -32,17 +33,25 @@ export const publicRoutes: Array<IRouter> = [
     path: '/forgotPass/:code',
     element: <SwitchPass />,
   },
-  { path: '*', element: <Navigate to='/login' replace /> },
+  {
+    path: '/main',
+    element: <MainPage />,
+  },
+  { path: '*', element: <Navigate to='/main' replace /> },
 ]
 
 export const userRoutes: Array<IRouter> = [
   {
-    path: '/Profile',
+    path: '/profile',
     element: <Profile />,
   },
   {
-    path: '/Security',
+    path: '/security',
     element: <SecurityPage />,
   },
-  { path: '*', element: <Navigate to='/Profile' replace /> },
+  {
+    path: '/main',
+    element: <MainPage />,
+  },
+  { path: '*', element: <Navigate to='/main' replace /> },
 ]
