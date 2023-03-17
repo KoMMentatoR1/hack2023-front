@@ -47,7 +47,12 @@ export const Header = () => {
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <HeaderBox>
           <ButtonContainer>
-            <Typography sx={{ fontSize: '30px' }} variant='h6' noWrap>
+            <Typography
+              onClick={() => navigator('/main')}
+              sx={{ fontSize: '30px' }}
+              variant='h6'
+              noWrap
+            >
               Logo
             </Typography>
           </ButtonContainer>
