@@ -8,17 +8,19 @@ import { Button } from '@mui/material'
 
 export const CreateQuestionMarker: FC = () => {
   const [block, setBlock] = useState<boolean>(false)
-  const { type, points, answerLoc } = useTypeSelector(store => store.question)
+  const { type, geoPoints, correctAnswerLoc } = useTypeSelector(
+    store => store.question
+  )
   const { mode } = useTypeSelector(store => store.helper)
-  const { addPoint, deletePoint, setAnswerLoc } = useAction()
+  const { addPoint, deletePoint, setCorrectAnswerLoc } = useAction()
 
   const map = useMapEvents({
     click: e => {
       if (!block) {
         if (type === 1) {
-          mode === 'right' ? setAnswerLoc(e.latlng) : addPoint(e.latlng)
+          mode === 'right' ? setCorrectAnswerLoc(e.latlng) : addPoint(e.latlng)
         } else {
-          setAnswerLoc(e.latlng)
+          setCorrectAnswerLoc(e.latlng)
         }
       }
     },
@@ -42,15 +44,15 @@ export const CreateQuestionMarker: FC = () => {
 
   return (
     <>
-      {points.map((marker, i) => (
+      {geoPoints.map((marker, i) => (
         <Marker key={`marker-${i}`} icon={customWrongIcon} position={marker}>
           <Popup>
             <Button onClick={() => deletePoint(marker)}>Удалить точку</Button>
           </Popup>
         </Marker>
       ))}
-      {answerLoc?.lat && (
-        <Marker icon={customRightIcon} position={answerLoc}>
+      {correctAnswerLoc?.lat && (
+        <Marker icon={customRightIcon} position={correctAnswerLoc}>
           <Popup>
             // Add delete point
             <span>

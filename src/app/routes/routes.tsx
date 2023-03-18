@@ -6,7 +6,6 @@ import ForgotPass from '../../pages/ForgotPass/ForgotPass'
 import SwitchPass from '../../pages/SwitchPass/SwitchPass'
 import MainPage from '../../pages/MainPage/MainPage'
 import QuizPage from '../../pages/QuizPage/QuizPage'
-import CreateQuizPage from '../../pages/CreateQuestion/CreateQuestion'
 import CreateQuestion from '../../pages/CreateQuestion/CreateQuestion'
 import { CreateQuiz } from '../../pages/CreateQuiz/CreateQuiz'
 
@@ -46,7 +45,7 @@ export const publicRoutes: Array<IRouter> = [
   },
   {
     path: '/createQuiz',
-    element: <CreateQuizPage />,
+    element: <CreateQuiz />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
@@ -73,8 +72,8 @@ export const userRoutes: Array<IRouter> = [
     element: <CreateQuestion />,
   },
   {
-    path: '/quation/:uuid',
-    element: <CreateQuizPage />,
+    path: '/question/:uuid',
+    element: <CreateQuestion />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]

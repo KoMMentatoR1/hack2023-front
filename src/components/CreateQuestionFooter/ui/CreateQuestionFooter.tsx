@@ -16,13 +16,13 @@ import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 import { useAction } from '../../../shared/hooks/useAction'
 
 export const CreateQuestionFooter = () => {
-  const { type, answerText } = useTypeSelector(store => store.question)
+  const { type, correctAnswerText } = useTypeSelector(store => store.question)
   const { mode } = useTypeSelector(store => store.helper)
-  const { setAnswerText, setType, clearData, setMode } = useAction()
+  const { setCorrectAnswerText, setType, clearData, setMode } = useAction()
 
   const handleChangeAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
     const enteredAnswer: string = e.target.value
-    setAnswerText(enteredAnswer)
+    setCorrectAnswerText(enteredAnswer)
   }
 
   const handleChangeType = (event: SelectChangeEvent) => {
@@ -67,7 +67,7 @@ export const CreateQuestionFooter = () => {
                 required
                 id='standard-required'
                 label='Правильный ответ'
-                defaultValue={answerText}
+                defaultValue={correctAnswerText}
                 variant='standard'
                 onChange={handleChangeAnswer}
               />
