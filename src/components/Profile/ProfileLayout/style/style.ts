@@ -12,18 +12,8 @@ export const LayoutMane = styled('div')(({ theme }) => ({
   height: 'calc(100vh - 64px)',
 }))
 
-export const LayoutMenu = styled('div')(({ theme }) => ({
-  width: '20%',
-  height: '100%',
-  marginTop: '64px',
-  paddingLeft: '20px',
-  position: 'static',
-  background: theme.background.main,
-  transition: 'background .1s linear',
-}))
-
 export const LayoutBody = styled('div')(({ theme }) => ({
-  width: '80%',
+  width: '100%',
   height: '100%',
   marginTop: '64px',
   padding: '20px',

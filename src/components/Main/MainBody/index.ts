@@ -1,0 +1,1 @@
+export {MainBody} from './ui/MainBody'

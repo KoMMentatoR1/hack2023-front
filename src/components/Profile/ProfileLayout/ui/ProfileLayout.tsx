@@ -4,7 +4,6 @@ import { Header } from '../../../Header'
 import {
   LayoutBody,
   LayoutMane,
-  LayoutMenu,
 } from '../style/style'
 
 interface ProfileLayoutProps {
@@ -19,10 +18,6 @@ export const ProfileLayout: FC<ProfileLayoutProps> = ({ children }) => {
     <div>
       <Header />
       <LayoutMane>
-        <LayoutMenu>
-          <List>
-          </List>
-        </LayoutMenu>
         <LayoutBody>{children}</LayoutBody>
       </LayoutMane>
     </div>

@@ -10,6 +10,10 @@ body > div {
   width: 100%;
 }
 
+.leaflet-container {
+  height: 80vh;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
