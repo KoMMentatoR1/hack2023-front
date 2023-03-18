@@ -8,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { CustomListItemIcon } from '../../Profile/ProfileLayout/style/style'
 import { useNavigate } from 'react-router-dom'
-import { CreateQuizButton } from '../../CreateQuizButton'
+import { CreateQuestionButton } from '../../CreateQuestionButton'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 
 const menu = [
@@ -53,7 +53,7 @@ export const Header = () => {
           </ButtonContainer>
         </HeaderBox>
         <HeaderBox>
-          <CreateQuizButton />
+          <CreateQuestionButton />
 
           <BaseThemeButton fontSize='30px' />
           <ButtonContainer>

@@ -5,6 +5,7 @@ import { snackbarSlice } from './slices/snackbarSlise'
 import { quizSlice } from './slices/quizSlice'
 import { questionSlice } from './slices/questionSlice'
 import { helperSlice } from './slices/helperSlice'
+import { regionApi } from './api/regionApi'
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
@@ -12,12 +13,15 @@ const rootReducer = combineReducers({
   snackbar: snackbarSlice.reducer,
   quiz: quizSlice.reducer,
   question: questionSlice.reducer,
-  helper: helperSlice.reducer
+  helper: helperSlice.reducer,
+  [regionApi.reducerPath]: regionApi.reducer,
 })
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware().concat(regionApi.middleware),
   })
 }
 
