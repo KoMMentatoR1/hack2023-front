@@ -15,7 +15,7 @@ export const LayoutMane = styled('div')(({ theme }) => ({
 export const LayoutMenu = styled('div')(({ theme }) => ({
   width: '20%',
   height: '100%',
-  marginTop: '64px',
+  margin: '64px',
   paddingLeft: '20px',
   position: 'static',
   background: theme.background.main,
@@ -23,12 +23,12 @@ export const LayoutMenu = styled('div')(({ theme }) => ({
 }))
 
 export const LayoutBody = styled('div')(({ theme }) => ({
-  width: '80%',
+  width: '60%',
   height: '100%',
-  marginTop: '64px',
   padding: '20px',
   background: theme.background.main,
   transition: 'background .1s linear',
+  margin: '64px 7% 0px 7%',
 }))
 
 export const CustomListItem = styled(ListItem)(({ theme }) => ({
@@ -38,7 +38,6 @@ export const CustomListItem = styled(ListItem)(({ theme }) => ({
   },
   transition: 'color .1s linear',
 }))
-
 
 export const CustomListItemButton = styled(ListItemButton)(({ theme }) => ({
   color: theme.primary.main,

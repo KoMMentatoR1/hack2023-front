@@ -4,7 +4,6 @@ import LoginPage from '../../pages/LoginPage/LoginPage'
 import Profile from '../../pages/Profile/Profile'
 import ForgotPass from '../../pages/ForgotPass/ForgotPass'
 import SwitchPass from '../../pages/SwitchPass/SwitchPass'
-import SecurityPage from '../../pages/SecurityPage/SecurityPage'
 import MainPage from '../../pages/MainPage/MainPage'
 
 interface IRouter {
@@ -44,10 +43,6 @@ export const userRoutes: Array<IRouter> = [
   {
     path: '/profile',
     element: <Profile />,
-  },
-  {
-    path: '/security',
-    element: <SecurityPage />,
   },
   {
     path: '/main',
