@@ -28,17 +28,13 @@ export const SimpleAuth: FC<SimpleAuthProps> = ({ authMode = 'login' }) => {
   return (
     <SimpleAuthLayout>
       <SimpleAuthButtonContainer>
-        <Title>
-          Simple {authMode === 'login' ? 'authorization' : 'registration'}
-        </Title>
         <SimpleAuthButton
           variant='contained'
           onClick={() => login()}
           startIcon={<GoogleIcon />}
         >
-          {authMode === 'login' ? 'Authorization' : 'Registration'} using google
+          Продолжить с Google
         </SimpleAuthButton>
-
         <OAuthLink
           to={
             'https://oauth.yandex.ru/authorize?response_type=code&client_id=bcdec515185c4acfb70bff5585278224'
@@ -48,8 +44,7 @@ export const SimpleAuth: FC<SimpleAuthProps> = ({ authMode = 'login' }) => {
             variant='contained'
             startIcon={<FontAwesomeIcon icon={faYandex} />}
           >
-            {authMode === 'login' ? 'Authorization' : 'Registration'} using
-            yandex
+            Продолжить с Yandex
           </SimpleAuthButton>
         </OAuthLink>
       </SimpleAuthButtonContainer>

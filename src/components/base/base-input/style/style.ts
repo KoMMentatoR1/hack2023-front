@@ -2,10 +2,8 @@ import { TextField, styled } from '@mui/material'
 
 export const Input = styled(TextField)(({ theme }) => ({
   '& > div > input': {
-    color: theme.input.main,
-    textShadow:
-      theme.mode === 'dark' ? `${theme.input.hover} 0 0 4px;` : 'none',
-    translate: 'color .1s linear, text-shadow .1s linear',
+    color: theme.text.input,
+    translate: 'color .1s linear',
   },
   '& > div.Mui-error > input': {
     color: theme.input.lightError,
@@ -21,7 +19,7 @@ export const Input = styled(TextField)(({ theme }) => ({
     borderBottom: `2px solid ${theme.input.disabled}`,
   },
   '& div.Mui-disabled > input': {
-    "-webkit-text-fill-color": theme.input.disabled,
+    '-webkit-text-fill-color': theme.input.disabled,
   },
   '& div.MuiInputBase-colorPrimary:before': {
     color: theme.input.disabled,
@@ -32,17 +30,16 @@ export const Input = styled(TextField)(({ theme }) => ({
   '& div.MuiInputBase-colorPrimary:after': {
     color: theme.input.disabled,
   },
-  '& > p': {
-    textShadow:
-      theme.mode === 'dark'
-        ? `${theme.input.helperTextShadow} 0 0 6px;`
-        : 'none',
-    translate: 'text-shadow .1s linear',
-  },
   '& > label': {
     color: theme.input.main,
-    textShadow:
-      theme.mode === 'dark' ? `${theme.input.hover} 0 0 4px;` : 'none',
+    translate: 'color .1s linear, text-shadow .1s linear',
+  },
+  '& > label.MuiFormLabel-filled': {
+    color: theme.input.hover,
+    translate: 'color .1s linear, text-shadow .1s linear',
+  },
+  '& > label.MuiFormLabel-filled + div::before': {
+    borderBottomColor: theme.input.hover,
     translate: 'color .1s linear, text-shadow .1s linear',
   },
   '&:hover > label': {
@@ -67,9 +64,7 @@ export const Input = styled(TextField)(({ theme }) => ({
   },
   '& > label.Mui-error': {
     color: theme.input.error,
-    textShadow:
-      theme.mode === 'dark' ? `${theme.input.darkError} 0 0 4px;` : 'none',
-    translate: 'color .1s linear, text-shadow .1s linear',
+    translate: 'color .1s linear',
   },
   '&:hover > label.Mui-error': {
     color: theme.input.darkError,
@@ -100,14 +95,16 @@ export const Input = styled(TextField)(({ theme }) => ({
     color: theme.input.darkError,
   },
   '& div > input:-webkit-autofill': {
-    '-webkit-text-fill-color': theme.input.main,
+    '-webkit-text-fill-color': theme.text.input,
   },
   '& label.Mui-disabled': {
-    textShadow: 'none',
     color: theme.input.disabled,
   },
   '& div.Mui-disabled:before ': {
-    textShadow: 'none',
     borderBottomColor: theme.input.disabled,
+  },
+  '& > label.MuiFormLabel-filled + div.Mui-disabled::before': {
+    borderBottomColor: theme.input.disabled,
+    translate: 'color .1s linear, text-shadow .1s linear',
   },
 }))

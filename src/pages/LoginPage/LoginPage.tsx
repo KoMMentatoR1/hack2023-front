@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { AuthButton } from '../../components/Auth/AuthButtonContainer'
@@ -9,6 +10,11 @@ import {
   AuthPageLayout,
   FormContainer,
 } from '../../components/Auth/AuthPageLayout'
+import {
+  NavigareButton,
+  NavigateBlock,
+  NavigateTitle,
+} from '../../components/Auth/AuthPageLayout/style/style'
 import { BaseInput } from '../../components/base/base-input'
 import { Header } from '../../components/Header'
 import { useAction } from '../../shared/hooks/useAction'
@@ -30,7 +36,7 @@ const LoginPage = () => {
   return (
     <>
       <Header />
-      <AuthPageLayout authMode='login' title='Mora' subTitle='Login'>
+      <AuthPageLayout authMode='login' title='Авторизация'>
         <FormContainer>
           <BaseInput
             rules={{
@@ -43,7 +49,7 @@ const LoginPage = () => {
             }}
             required
             error={errors.email ? true : false}
-            label='Email'
+            label='Почта'
             name='email'
             helperText={errors.email?.message as string}
             control={control}
@@ -51,7 +57,7 @@ const LoginPage = () => {
           <BaseInput
             required
             error={errors.password ? true : false}
-            label='Password'
+            label='Пароль'
             name='password'
             password
             helperText={errors.password?.message as string}
@@ -65,28 +71,23 @@ const LoginPage = () => {
             variant='text'
             onClick={() => navigator('/forgotPass')}
           >
-            Forgot password?
+            Забыли пароль?
           </ForgotPassButton>
-          <ButtonContainer>
-            <AuthButton
-              onClick={() => navigator('/register')}
-              fullWidth
-              color='success'
-              variant='contained'
-              size='small'
-            >
-              Sing up
-            </AuthButton>
-            <AuthButton
-              onClick={handleSubmit(onSubmit)}
-              fullWidth
-              color='success'
-              variant='contained'
-              size='large'
-            >
-              log in
-            </AuthButton>
-          </ButtonContainer>
+          <AuthButton
+            onClick={handleSubmit(onSubmit)}
+            fullWidth
+            color='success'
+            variant='contained'
+            size='large'
+          >
+            Войти
+          </AuthButton>
+          <NavigateBlock>
+            <NavigateTitle>У вас нет акаунта?</NavigateTitle>
+            <NavigareButton onClick={() => navigator('/register')}>
+              Регистрация
+            </NavigareButton>
+          </NavigateBlock>
         </FormContainer>
       </AuthPageLayout>
     </>

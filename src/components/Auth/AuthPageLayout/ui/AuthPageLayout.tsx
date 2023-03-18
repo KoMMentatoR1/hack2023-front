@@ -13,7 +13,6 @@ import { BaseThemeButton } from '../../../base/base-theme-button'
 
 interface AuthPageLayoutProps {
   title: string
-  subTitle: string
   children: React.ReactNode
   authMode?: 'registration' | 'login'
   simpleAuth?: boolean
@@ -21,22 +20,17 @@ interface AuthPageLayoutProps {
 
 export const AuthPageLayout: FC<AuthPageLayoutProps> = ({
   title,
-  subTitle,
   children,
   authMode = 'login',
   simpleAuth = true,
 }) => {
   return (
     <Background>
-      <Container simpleAuth={simpleAuth}>
+      <Container>
         <DashboardContainer>
-          <Dashboard simpleAuth={simpleAuth}>
+          <Dashboard>
             <Title>{title}</Title>
-            <SubTitle>{subTitle}</SubTitle>
             {children}
-            <ThemButtonContainer>
-              <BaseThemeButton />
-            </ThemButtonContainer>
           </Dashboard>
           {simpleAuth ? <SimpleAuth authMode={authMode} /> : ''}
         </DashboardContainer>

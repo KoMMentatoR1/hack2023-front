@@ -8,6 +8,11 @@ import {
   AuthPageLayout,
   FormContainer,
 } from '../../components/Auth/AuthPageLayout'
+import {
+  NavigareButton,
+  NavigateBlock,
+  NavigateTitle,
+} from '../../components/Auth/AuthPageLayout/style/style'
 import { BaseInput } from '../../components/base/base-input'
 import { Header } from '../../components/Header'
 import { useAction } from '../../shared/hooks/useAction'
@@ -33,7 +38,7 @@ const RegisterPage = () => {
   return (
     <>
       <Header />
-      <AuthPageLayout authMode='registration' title='Mora' subTitle='Register'>
+      <AuthPageLayout authMode='registration' title='Регистрация'>
         <FormContainer>
           <BaseInput
             required
@@ -105,26 +110,21 @@ const RegisterPage = () => {
               },
             }}
           />
-          <AuthButtonContainer>
-            <AuthButton
-              fullWidth
-              onClick={() => navigator('/login')}
-              color='success'
-              variant='contained'
-              size='large'
-            >
-              back to login
-            </AuthButton>
-            <AuthButton
-              onClick={handleSubmit(onSubmit)}
-              fullWidth
-              color='success'
-              variant='contained'
-              size='large'
-            >
-              sign in
-            </AuthButton>
-          </AuthButtonContainer>
+          <AuthButton
+            onClick={handleSubmit(onSubmit)}
+            fullWidth
+            color='success'
+            variant='contained'
+            size='large'
+          >
+            Войти
+          </AuthButton>
+          <NavigateBlock>
+            <NavigateTitle>Уже есть аккаунт?</NavigateTitle>
+            <NavigareButton onClick={() => navigator('/login')}>
+              Войти
+            </NavigareButton>
+          </NavigateBlock>
         </FormContainer>
       </AuthPageLayout>
     </>

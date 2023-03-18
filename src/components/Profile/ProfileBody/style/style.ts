@@ -11,7 +11,7 @@ export const Header = styled('div')(({ theme }) => ({
   textAlign: 'center',
   fontSize: '40px',
   paddingRight: '20%',
-  color: theme.primary.main,
+  color: theme.text.primary,
 }))
 
 export const Container = styled('div')(({ theme }) => ({
@@ -19,6 +19,5 @@ export const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '30px',
-
   marginRight: '20%',
 }))

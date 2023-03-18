@@ -16,27 +16,25 @@ export const ButtonContainer = styled('div')`
 `
 export const AuthButton = styled(Button)(({ theme }) => ({
   fontFamily: 'Rubik, sans-serif',
-  backgroundColor: theme.background.button,
-  boxShadow: theme.shadow.button,
-  '&:hover': {
-    backgroundColor: theme.background.buttonHover,
-    boxShadow: theme.shadow.buttonHover,
+  background: theme.button.primary,
+  ':hover': {
+    background: theme.button.primaryHover,
   },
-  transition: 'background-color 0.1s linear, box-shadow 0.1s linear',
+  marginTop: '40px',
+  transition: 'background-color 0.1s linear',
 }))
 
 export const ForgotPassButton = styled(Button)(({ theme }) => ({
   position: 'relative',
-  top: '-15px',
   width: '100%',
   padding: '0 !important',
   justifyContent: 'flex-start',
   fontFamily: 'Rubik, sans-serif',
   fontSize: '14px',
   textTransform: 'none',
-  color: theme.input.main,
+  color: theme.text.secondary,
   '&:hover': {
-    color: theme.input.hover,
+    color: theme.text.primaryHover,
     background: 'transparent',
   },
   transition: 'color 0.1s linear',
