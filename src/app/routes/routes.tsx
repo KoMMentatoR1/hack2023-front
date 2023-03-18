@@ -68,7 +68,7 @@ export const userRoutes: Array<IRouter> = [
     element: <CreateQuiz />,
   },
   {
-    path: '/createQuation',
+    path: '/createQuestion',
     element: <CreateQuestion />,
   },
   {

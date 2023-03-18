@@ -35,8 +35,6 @@ export const questionSlice = createSlice({
       state.geoPoints = state.geoPoints.filter(
         point => {
           return point.lat !== action.payload.lat && point.lng !== action.payload.lng
-          console.log("point: ", point)
-          console.log("action: ", action.payload)
         }
       )
     },
