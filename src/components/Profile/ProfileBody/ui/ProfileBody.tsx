@@ -17,6 +17,7 @@ export const ProfileBody = () => {
       <Container>
         <BaseInput
           required
+          disabled
           label='Имя'
           error={errors.lastName ? true : false}
           defaultValue={user.user.lastName}
@@ -31,13 +32,14 @@ export const ProfileBody = () => {
           error={errors.firstName ? true : false}
           name='firstName'
           control={control}
+          disabled
           defaultValue={user.user.firstName}
           rules={{ required: 'Фамилия не может быть пустым' }}
           helperText={errors.firstName?.message as string}
         />
         <BaseInput
-          disabled={true}
-          label='email (не доступно для изменения)'
+          disabled
+          label='email'
           name='email'
           control={control}
           defaultValue={user.user.email}

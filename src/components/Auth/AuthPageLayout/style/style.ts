@@ -1,9 +1,4 @@
-import { styled } from '@mui/material'
-import { Theme } from '@mui/material/styles'
-
-interface Props {
-  simpleAuth: boolean
-}
+import { Button, styled } from '@mui/material'
 
 export const Background = styled('div')(({ theme }) => ({
   backgroundColor: theme.background.main,
@@ -15,8 +10,8 @@ export const Background = styled('div')(({ theme }) => ({
   transition: 'background 0.1s linear',
 }))
 
-export const Container = styled('div')((props: Props & { theme: Theme }) => ({
-  width: props.simpleAuth ? '60%' : '40%',
+export const Container = styled('div')(({ theme }) => ({
+  width: '540px',
   marginRight: 'auto',
   marginLeft: 'auto',
   position: 'relative',
@@ -30,34 +25,22 @@ export const Container = styled('div')((props: Props & { theme: Theme }) => ({
   '@media (max-width: 600px)': {
     width: '90%',
   },
-
-  '&:after': props.simpleAuth
-    ? {
-        content: "''",
-        position: 'absolute',
-        top: '2px',
-        left: '50%',
-        height: '99%',
-        width: '3px',
-        background: props.theme.primary.main,
-        boxShadow: props.theme.shadow.dashboard,
-      }
-    : {},
 }))
 
 export const DashboardContainer = styled('div')(({ theme }) => ({
   width: '100%',
   display: 'flex',
-  flexDirection: 'row',
-  border: `3px solid ${theme.primary.main}`,
-  borderRadius: `24px`,
-  boxShadow: theme.shadow.dashboard,
+  flexDirection: 'column',
+  borderRadius: `20px`,
+  marginTop: '30px',
+  background: theme.background.layout,
+  boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.1)',
   transition:
     'background 0.1s linear, border 0.1s linear, boxShadow 0.1s linear',
 }))
 
-export const Dashboard = styled('div')((props: Props) => ({
-  width: props.simpleAuth ? '50%' : '100%',
+export const Dashboard = styled('div')(() => ({
+  width: '100%',
 }))
 
 export const Title = styled('div')(({ theme }) => ({
@@ -65,10 +48,9 @@ export const Title = styled('div')(({ theme }) => ({
   fontSize: '50px',
   fontFamily: 'Rubik, sans-serif',
   fontWeight: '500',
-  color: theme.primary.main,
-  textShadow: theme.mode === 'dark' ? `${theme.primary} 0 0 8px` : 'none',
-  marginBottom: '15px',
-  paddingTop: '45px',
+  color: theme.text.primary,
+  marginBottom: '50px',
+  padding: '70px 50px 0 50px',
   textAlign: 'center',
   transition: 'text-shadow 0.1s linear, tcolor 0.1s linear',
 }))
@@ -87,13 +69,33 @@ export const SubTitle = styled('div')(({ theme }) => ({
 export const FormContainer = styled('form')`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
   width: 100%;
 
-  padding: 30px;
+  padding: 0 50px;
 `
 export const ThemButtonContainer = styled('div')`
   position: absolute;
   right: 10px;
   top: 10px;
 `
+
+export const NavigateBlock = styled('div')`
+  margin: 10px auto 40px auto;
+  color: #959595;
+`
+
+export const NavigateTitle = styled('div')``
+
+export const NavigareButton = styled(Button)(({ theme }) => ({
+  width: '100%',
+  fontFamily: 'Rubik, sans-serif',
+  fontSize: '14px',
+  textTransform: 'none',
+  color: theme.text.secondary,
+  '&:hover': {
+    color: theme.text.primaryHover,
+    background: 'transparent',
+  },
+  transition: 'color 0.1s linear',
+}))

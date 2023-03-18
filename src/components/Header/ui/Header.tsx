@@ -1,26 +1,18 @@
-import {
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import { IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
 import { ButtonContainer, CustomAppBar, HeaderBox } from '../style/style'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { BaseThemeButton } from '../../base/base-theme-button'
 import { useState } from 'react'
 import { useAction } from '../../../shared/hooks/useAction'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import ShieldIcon from '@mui/icons-material/Shield'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { CustomListItemIcon } from '../../Profile/ProfileLayout/style/style'
 import { useNavigate } from 'react-router-dom'
 import { CreateQuizButton } from '../../CreateQuizButton'
+import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
-  { name: 'Защита', icon: <ShieldIcon />, path: '/Security' },
 ]
 
 export const Header = () => {
@@ -34,6 +26,8 @@ export const Header = () => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
+
+  const { user } = useTypeSelector(state => state.auth)
 
   const handleClose = () => {
     setAnchorEl(null)
@@ -114,17 +108,22 @@ export const Header = () => {
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-          {menu.map(el => (
-            <MenuItem onClick={() => navigator(el.path)}>
-              <CustomListItemIcon>{el.icon}</CustomListItemIcon>
-              {el.name}
-            </MenuItem>
-          ))}
-          <MenuItem onClick={() => onLogout()}>
+          {user.user.id
+            ? menu.map(el => (
+                <MenuItem onClick={() => navigator(el.path)}>
+                  <CustomListItemIcon>{el.icon}</CustomListItemIcon>
+                  {el.name}
+                </MenuItem>
+              ))
+            : ''}
+          <MenuItem
+            sx={{ color: '#E9284A' }}
+            onClick={() => (user.user.id ? onLogout() : '')}
+          >
             <CustomListItemIcon>
               <LogoutIcon />
             </CustomListItemIcon>
-            Выйти
+            {user.user.id ? 'Выйти' : 'Войти'}
           </MenuItem>
         </Menu>
       </Toolbar>

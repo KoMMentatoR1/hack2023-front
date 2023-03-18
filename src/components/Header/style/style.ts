@@ -10,12 +10,13 @@ export const CustomAppBar = styled(AppBar)(({ theme }) => ({
 export const HeaderBox = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  color: theme.primary.main,
+  color: theme.text.primary,
+  margin: '0px 7% 0px 7%',
 }))
 
 export const ButtonContainer = styled('div')(({ theme }) => ({
   ':hover': {
-    color: theme.primary.hover,
+    color: theme.text.primary,
     cursor: 'pointer',
   },
   transition: 'color .1s linear',

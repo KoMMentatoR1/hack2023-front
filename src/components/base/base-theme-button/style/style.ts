@@ -10,9 +10,9 @@ export const CustomLightModeIcon = styled(LightModeIcon)`
   transition: 'color .1s linear';
 `
 export const ThemeButton = styled('div')(({ theme }) => ({
-  color: theme.primary.main,
+  color: theme.text.primary,
   ':hover': {
-    color: theme.primary.hover,
+    color: theme.text.primary,
   },
   transition: 'color .1s linear',
 }))

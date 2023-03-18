@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import { useForm, FieldValues, SubmitHandler } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -37,42 +38,42 @@ const SwitchPass = () => {
   }, [snack])
 
   return (
-    <AuthPageLayout title='Mora' subTitle='Switch password' simpleAuth={false}>
+    <AuthPageLayout title='Изменение пароля' simpleAuth={false}>
       <FormContainer>
         <BaseInput
           required
-          label='Password'
+          label='Пароль'
           error={errors.password ? true : false}
           name='password'
           control={control}
           password
           helperText={errors.password?.message as string}
           rules={{
-            required: 'Password is required',
-            minLength: { value: 8, message: 'Password very small' },
-            maxLength: { value: 255, message: 'Repeat password very big' },
+            required: 'Поле не может быть пустым',
+            minLength: { value: 8, message: 'Пароль слишком мал' },
+            maxLength: { value: 255, message: 'Пароль слишком большой' },
           }}
         />
         <BaseInput
           required
-          label='Repeat password'
+          label='Повторения пароля'
           error={errors.repeatPassword ? true : false}
           name='repeatPassword'
           control={control}
           password
           helperText={errors.repeatPassword?.message as string}
           rules={{
-            required: 'Repeat password is required',
-            minLength: { value: 8, message: 'Repeat password very small' },
-            maxLength: { value: 255, message: 'Repeat password very big' },
+            required: 'Повторное введение пароля обязательно',
+            minLength: { value: 8, message: 'Пароль слишком мал' },
+            maxLength: { value: 255, message: 'Пароль слишком большой' },
             validate: (val: string) => {
               if (watch('password') != val) {
-                return 'Your passwords do no match'
+                return 'Пароли не совпадают'
               }
             },
           }}
         />
-        <AuthButtonContainer>
+        <Box sx={{ display: 'flex', flexDirection: 'column', mb: '50px' }}>
           <AuthButton
             onClick={() => navigator('/login')}
             fullWidth
@@ -80,7 +81,7 @@ const SwitchPass = () => {
             variant='contained'
             size='large'
           >
-            return to login
+            Вернуться к ходу
           </AuthButton>
           <AuthButton
             onClick={handleSubmit(onSubmit)}
@@ -89,9 +90,9 @@ const SwitchPass = () => {
             variant='contained'
             size='large'
           >
-            Switch password
+            Сменить пароль
           </AuthButton>
-        </AuthButtonContainer>
+        </Box>
       </FormContainer>
     </AuthPageLayout>
   )
