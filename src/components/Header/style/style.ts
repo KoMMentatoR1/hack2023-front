@@ -11,6 +11,7 @@ export const HeaderBox = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   color: theme.text.primary,
+  margin: '0px 7% 0px 7%',
 }))
 
 export const ButtonContainer = styled('div')(({ theme }) => ({
