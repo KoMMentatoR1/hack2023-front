@@ -1,16 +1,16 @@
+import { LatLng } from 'leaflet'
 import { AppDispatch } from '..'
 import {
-  IPoint,
   QuestionAnswer,
   questionSlice,
   QuestionState,
 } from '../slices/questionSlice'
 
-export const addPoint = (point: IPoint) => (dispatch: AppDispatch) => {
+export const addPoint = (point: LatLng) => (dispatch: AppDispatch) => {
   dispatch(questionSlice.actions.setPoint(point))
 }
 
-export const deletePoint = (point: IPoint) => (dispatch: AppDispatch) => {
+export const deletePoint = (point: LatLng) => (dispatch: AppDispatch) => {
   dispatch(questionSlice.actions.deletePoint(point))
 }
 
