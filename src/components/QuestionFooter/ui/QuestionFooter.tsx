@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
 
-export const QuizFooter = () => {
+export const QuestionFooter = () => {
   const info = {
     type: 1,
     description: "Red square",

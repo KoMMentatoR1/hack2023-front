@@ -2,7 +2,7 @@ import React, {FC, useState} from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
 import {Icon} from "leaflet";
 
-export const QuizMarker: FC = () => {
+export const QuestionMarker: FC = () => {
   const [markers, setMarkers] = useState([
     {
       lat: 40,

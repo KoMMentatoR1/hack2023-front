@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
 import { BaseContainer } from '../../components/base/base-container'
-import { QuizFooter } from '../../components/QuizFooter'
-import { QuizMarker } from '../../components/QuizMarker'
+import { QuestionFooter } from '../../components/QuestionFooter'
+import { QuestionMarker } from '../../components/QuestionMarker'
 import { MapBody } from '../../components/Map/MapBody'
 import { MapLayout } from '../../components/Map/MapLayout'
 
-const QuizPage = () => {
+const QuestionPage = () => {
   const { id } = useParams()
 
   console.log(id)
@@ -14,12 +14,12 @@ const QuizPage = () => {
     <BaseContainer>
       <MapLayout>
         <MapBody>
-          <QuizMarker />
+          <QuestionMarker />
         </MapBody>
       </MapLayout>
-      <QuizFooter />
+      <QuestionFooter />
     </BaseContainer>
   )
 }
 
-export default QuizPage
+export default QuestionPage
