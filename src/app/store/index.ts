@@ -6,6 +6,7 @@ import { quizSlice } from './slices/quizSlice'
 import { questionSlice } from './slices/questionSlice'
 import { helperSlice } from './slices/helperSlice'
 import { regionApi } from './api/regionApi'
+import { answerSlice } from './slices/answerSlice'
 import { paginationSlice } from './slices/paginationSlice'
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   quiz: quizSlice.reducer,
   question: questionSlice.reducer,
   helper: helperSlice.reducer,
+  answer: answerSlice.reducer,
   pagination: paginationSlice.reducer,
   [regionApi.reducerPath]: regionApi.reducer,
 })
