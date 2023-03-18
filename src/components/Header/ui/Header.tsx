@@ -8,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { CustomListItemIcon } from '../../Profile/ProfileLayout/style/style'
 import { useNavigate } from 'react-router-dom'
-import { CreateQuizButton } from '../../CreateQuizButton'
+import { CreateQuestionButton } from '../../CreateQuestionButton'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 
@@ -54,7 +54,6 @@ export const Header = () => {
           </ButtonContainer>
         </HeaderBox>
         <HeaderBox>
-          <CreateQuizButton />
           <ButtonContainer>
             <IconButton
               style={{ margin: '0 10px' }}
@@ -66,6 +65,7 @@ export const Header = () => {
               <AdminPanelSettingsIcon fontSize='large' />
             </IconButton>
           </ButtonContainer>
+          <CreateQuestionButton />
           <BaseThemeButton fontSize='30px' />
           <ButtonContainer>
             <IconButton

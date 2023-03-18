@@ -1,25 +1,20 @@
-import { useParams } from 'react-router-dom'
 import { BaseContainer } from '../../components/base/base-container'
-import { QuizFooter } from '../../components/QuizFooter'
-import { QuizMarker } from '../../components/QuizMarker'
+import { CreateQuestionFooter } from '../../components/CreateQuestionFooter'
+import { CreateQuestionMarker } from '../../components/CreateQuestionMarker'
 import { MapBody } from '../../components/Map/MapBody'
 import { MapLayout } from '../../components/Map/MapLayout'
 
-const QuizPage = () => {
-  const { id } = useParams()
-
-  console.log(id)
-
+const CreateQuestion = () => {
   return (
     <BaseContainer>
       <MapLayout>
         <MapBody>
-          <QuizMarker />
+          <CreateQuestionMarker />
         </MapBody>
       </MapLayout>
-      <QuizFooter />
+      <CreateQuestionFooter />
     </BaseContainer>
   )
 }
 
-export default QuizPage
+export default CreateQuestion

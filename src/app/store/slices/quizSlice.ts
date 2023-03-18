@@ -1,33 +1,45 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface QuizState {
+  id: number
   title: string
-  discription: string
+  description: string
   isFinal: boolean
-  region: number
+  regionId: number
   maxBall: number
+  isLoading: boolean
 }
 
 const initialState: QuizState = {
+  id: -1,
   title: '',
-  discription: '',
+  description: '',
   isFinal: false,
-  region: 0,
+  regionId: 0,
   maxBall: 0,
+  isLoading: false,
 }
 
 export const quizSlice = createSlice({
   name: 'quiz',
   initialState,
   reducers: {
+    fetchQuiz(state, action: PayloadAction<void>) {
+      state.isLoading = true
+    },
     setData(state, action: PayloadAction<QuizState>) {
-      state = action.payload
+      state.description = action.payload.description
+      state.title = action.payload.title
+      state.isFinal = action.payload.isFinal
+      state.regionId = action.payload.regionId
+      state.maxBall = action.payload.maxBall
+      state.id = action.payload.id
     },
     clearData(state, action: PayloadAction<void>) {
       state.title = ''
-      state.discription = ''
+      state.description = ''
       state.isFinal = false
-      state.region = 0
+      state.regionId = 0
       state.maxBall = 0
     },
   },
