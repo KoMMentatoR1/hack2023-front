@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: isDev ? '/' : '/mora-front/',
+    publicPath: '/',
   },
   mode: isDev ? 'development' : 'production',
   devServer: {
