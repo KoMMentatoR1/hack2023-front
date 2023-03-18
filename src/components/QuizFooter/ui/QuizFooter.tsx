@@ -2,7 +2,13 @@ import React from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
 
 export const QuizFooter = () => {
+  const info = {
+    type: 1,
+    description: "Red square",
+    geoPoints: {
 
+    }
+  }
 
   return (
     <Box

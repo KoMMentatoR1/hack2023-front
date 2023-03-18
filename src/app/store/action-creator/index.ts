@@ -3,11 +3,13 @@ import * as ThemeActionCreators from './theme'
 import * as SnackbarActionCreators from './snackbar'
 import * as QuestionActionCreators from './question'
 import * as HelperActionCreators from './helper'
+import * as AnswerActionCreators from './answer'
 
 export default {
   ...AuthActionCreators,
   ...ThemeActionCreators,
   ...SnackbarActionCreators,
   ...QuestionActionCreators,
-  ...HelperActionCreators
+  ...HelperActionCreators,
+  ...AnswerActionCreators
 }

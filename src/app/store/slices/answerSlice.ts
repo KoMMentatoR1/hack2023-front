@@ -25,7 +25,7 @@ export const answerSlice = createSlice({
     setAnswerLoc(state, action: PayloadAction<LatLng>) {
       state.answerLoc = action.payload
     },
-    clearData(state, action: PayloadAction<void>) {
+    clearAnswerData(state, action: PayloadAction<void>) {
       state.answerText = ''
       state.answerLoc = {} as LatLng
     }

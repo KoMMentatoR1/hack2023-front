@@ -12,7 +12,8 @@ const rootReducer = combineReducers({
   snackbar: snackbarSlice.reducer,
   quiz: quizSlice.reducer,
   question: questionSlice.reducer,
-  helper: helperSlice.reducer
+  helper: helperSlice.reducer,
+  answer: helperSlice.reducer
 })
 
 export const setupStore = () => {

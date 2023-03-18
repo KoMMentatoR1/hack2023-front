@@ -13,12 +13,12 @@ export const deletePoint = (point: LatLng) => (dispatch: AppDispatch) => {
   dispatch(questionSlice.actions.deletePoint(point))
 }
 
-export const setAnswerText =
+export const setCorrectAnswerText =
   (answer: string) => (dispatch: AppDispatch) => {
     dispatch(questionSlice.actions.setCorrectAnswerText(answer))
   }
 
-export const setAnswerLoc =
+export const setCorrectAnswerLoc =
   (answer: LatLng) => (dispatch: AppDispatch) => {
     dispatch(questionSlice.actions.setCorrectAnswerLoc(answer))
   }
