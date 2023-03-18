@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
-import { ProfileLayout } from '../../components/Profile/ProfileLayout'
 import { BaseContainer } from '../../components/base/base-container'
-import { Map } from '../../components/Map'
 import { QuizFooter } from '../../components/QuizFooter'
 import { QuizMarker } from '../../components/QuizMarker'
+import { MapBody } from '../../components/Map/MapBody'
+import { MapLayout } from '../../components/Map/MapLayout'
 
 const QuizPage = () => {
   const { id } = useParams()
@@ -12,11 +12,11 @@ const QuizPage = () => {
 
   return (
     <BaseContainer>
-      <ProfileLayout>
-        <Map>
+      <MapLayout>
+        <MapBody>
           <QuizMarker />
-        </Map>
-      </ProfileLayout>
+        </MapBody>
+      </MapLayout>
       <QuizFooter />
     </BaseContainer>
   )

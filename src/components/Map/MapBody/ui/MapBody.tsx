@@ -7,7 +7,7 @@ interface MapProps {
   children?: React.ReactNode
 }
 
-export const Map: React.FC<MapProps> = ({ children }) => {
+export const MapBody: React.FC<MapProps> = ({ children }) => {
   return (
     <MapContainer center={[51.505, -0.09]} zoom={13}
                   scrollWheelZoom={false}
