@@ -2,12 +2,12 @@ import { AppDispatch } from '../index'
 import { LatLng } from 'leaflet'
 import { answerSlice } from '../slices/answerSlice'
 
-export const setCorrectAnswerText =
+export const setAnswerText =
   (answer: string) => (dispatch: AppDispatch) => {
     dispatch(answerSlice.actions.setAnswerText(answer))
   }
 
-export const setCorrectAnswerLoc =
+export const setAnswerLoc =
   (answer: LatLng) => (dispatch: AppDispatch) => {
     dispatch(answerSlice.actions.setAnswerLoc(answer))
   }

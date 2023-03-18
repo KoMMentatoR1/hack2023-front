@@ -43,7 +43,7 @@ export const CreateQuestionFooter = () => {
     >
       <Container maxWidth='lg'>
         <Grid container direction='row' alignItems='center'>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <FormControl>
               <InputLabel id='demo-simple-select-label'>Age</InputLabel>
               <Select
@@ -59,21 +59,22 @@ export const CreateQuestionFooter = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             {type === 1 ? (
               <Button onClick={handleChangeMode}>change {mode}</Button>
-            ) : (
-              <TextField
-                required
-                id='standard-required'
-                label='Правильный ответ'
-                defaultValue={correctAnswerText}
-                variant='standard'
-                onChange={handleChangeAnswer}
-              />
-            )}
+            ) : null}
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
+            <TextField
+              required
+              id='standard-required'
+              label='Правильный ответ'
+              defaultValue={correctAnswerText}
+              variant='standard'
+              onChange={handleChangeAnswer}
+            />
+          </Grid>
+          <Grid item xs={3}>
             <Button>submit</Button>
           </Grid>
         </Grid>
