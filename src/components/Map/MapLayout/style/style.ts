@@ -9,7 +9,6 @@ import {
 export const LayoutMain = styled('div')(({ theme }) => ({
   display: 'flex',
   width: '100%',
-  height: 'calc(100vh)',
 }))
 
 export const LayoutBody = styled('div')(({ theme }) => ({
