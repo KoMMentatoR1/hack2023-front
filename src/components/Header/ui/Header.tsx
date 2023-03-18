@@ -50,11 +50,10 @@ export const Header = () => {
             >
               Logo
             </Typography>
-
           </ButtonContainer>
         </HeaderBox>
         <HeaderBox>
-          <CreateQuizButton/>
+          <CreateQuizButton />
 
           <BaseThemeButton fontSize='30px' />
           <ButtonContainer>
@@ -118,7 +117,7 @@ export const Header = () => {
             : ''}
           <MenuItem
             sx={{ color: '#E9284A' }}
-            onClick={() => (user.user.id ? onLogout() : '')}
+            onClick={() => (user.user.id ? onLogout() : navigator('/login'))}
           >
             <CustomListItemIcon>
               <LogoutIcon />
