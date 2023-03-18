@@ -40,11 +40,11 @@ export const publicRoutes: Array<IRouter> = [
   },
   {
     path: '/quiz/:id',
-    element: <QuizPage/>,
+    element: <QuizPage />,
   },
   {
     path: '/createQuiz',
-    element: <CreateQuizPage/>,
+    element: <CreateQuizPage />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
@@ -57,6 +57,14 @@ export const userRoutes: Array<IRouter> = [
   {
     path: '/main',
     element: <MainPage />,
+  },
+  {
+    path: '/quiz/:id',
+    element: <QuizPage />,
+  },
+  {
+    path: '/createQuiz',
+    element: <CreateQuizPage />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
