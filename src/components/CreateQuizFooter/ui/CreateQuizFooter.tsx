@@ -1,34 +1,88 @@
-import React from 'react'
-import { Box, Container, Grid, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import {
+  Box,
+  Button,
+  Container,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select, SelectChangeEvent,
+  TextField,
+  Typography,
+} from '@mui/material'
+import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
+import { useAction } from '../../../shared/hooks/useAction'
 
 export const CreateQuizFooter = () => {
+  // const [type, setType] = useState<number>(1)
+  const { type, answerText } = useTypeSelector(store => store.question)
+  const { mode } = useTypeSelector(store => store.helper)
+  const { setAnswerText, setType, clearData, setMode} = useAction()
 
+  const handleChangeAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const enteredAnswer: string = e.target.value
+    setAnswerText( enteredAnswer)
+  }
+
+  const handleChangeType = (event: SelectChangeEvent) => {
+    setType(Number(event.target.value));
+    clearData()
+  };
+
+  const handleChangeMode = () => {
+    mode === 'wrong' ? setMode('right') : setMode('wrong')
+  };
 
   return (
     <Box
       sx={{
         width: "100%",
         height: "auto",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
-        backgroundColor: "blue"
       }}
     >
       <Container maxWidth="lg">
+
         <Grid
           container
           direction="row"
-          //alignItems="center"
+          alignItems="center"
         >
           <Grid item xs={4}>
-            <Typography color="black" variant="h5">
-              React Starter App
-            </Typography>
+
+            <FormControl>
+              <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={type.toString()}
+                label="Age"
+                onChange={handleChangeType}
+              >
+                <MenuItem value={1}>Угадай из списка</MenuItem>
+                <MenuItem value={2}>Угадай локацию</MenuItem>
+                <MenuItem value={3}>Угадай название</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={4}>
-            <Typography color="textSecondary" variant="subtitle1">
-              {`${new Date().getFullYear()} | React | Material UI | React Router`}
-            </Typography>
+            {type === 1 ?
+              <Button onClick={handleChangeMode}>
+                change {mode}
+              </Button> : <TextField
+                required
+                id="standard-required"
+                label="Правильный ответ"
+                defaultValue={answerText  }
+                variant="standard"
+                onChange={handleChangeAnswer}
+              />
+            }
+          </Grid>
+          <Grid item xs={4}>
+            <Button>
+              submit
+            </Button>
           </Grid>
         </Grid>
       </Container>

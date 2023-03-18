@@ -1,7 +1,6 @@
 import { LatLng } from 'leaflet'
 import { AppDispatch } from '..'
 import {
-  QuestionAnswer,
   questionSlice,
   QuestionState,
 } from '../slices/questionSlice'
@@ -14,9 +13,24 @@ export const deletePoint = (point: LatLng) => (dispatch: AppDispatch) => {
   dispatch(questionSlice.actions.deletePoint(point))
 }
 
-export const setAnswer =
-  (answer: QuestionAnswer) => (dispatch: AppDispatch) => {
-    dispatch(questionSlice.actions.setAnswer(answer))
+export const setAnswerText =
+  (answer: string) => (dispatch: AppDispatch) => {
+    dispatch(questionSlice.actions.setAnswerText(answer))
+  }
+
+export const setAnswerLoc =
+  (answer: LatLng) => (dispatch: AppDispatch) => {
+    dispatch(questionSlice.actions.setAnswerLoc(answer))
+  }
+
+export const setType =
+  (type: number) => (dispatch: AppDispatch) => {
+    dispatch(questionSlice.actions.setType(type))
+  }
+
+export const clearData =
+  () => (dispatch: AppDispatch) => {
+    dispatch(questionSlice.actions.clearData())
   }
 
 export const setQuestion =

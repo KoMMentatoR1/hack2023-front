@@ -1,28 +1,34 @@
-import React, {FC, useState} from "react";
+import React, { FC, useEffect, useState } from 'react'
 import { Marker, Popup, useMapEvents } from "react-leaflet";
 import { Icon, LatLng } from 'leaflet'
 import PlaceIcon from '@mui/icons-material/Place';
+import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
+import { useAction } from '../../../shared/hooks/useAction'
+import { Button } from '@mui/material'
 
-interface CreateQuizProps {
-  type: number
-}
-
-export const CreateQuizMarker: FC<CreateQuizProps> = ({ type }) => {
-  const [mod, setMod] = useState<string>('wrong')
-  const [marker, setMarker] = useState<LatLng[]>([]);
-
-  const [wrongMarkers, setWrongMarkers] = useState<LatLng[]>([])
-  const [answer, setAnswer] = useState<string>('')
+export const CreateQuizMarker: FC = () => {
+  const [block, setBlock] = useState<boolean>(false)
+  const { type, points, answerLoc } = useTypeSelector(store => store.question)
+  const { mode } = useTypeSelector(store => store.helper)
+  const { addPoint, deletePoint, setAnswerLoc} = useAction()
 
   const map = useMapEvents({
     click: (e) => {
-      if (type === 1) {
-        setMarker([e.latlng])
-      } else {
-        mod === 'right' ?
-          setMarker([e.latlng]) :
-          setWrongMarkers([...wrongMarkers, e.latlng])
+      if (!block) {
+        if (type === 1) {
+          mode === 'right' ?
+            setAnswerLoc(e.latlng) :
+          addPoint(e.latlng)
+        } else {
+          setAnswerLoc(e.latlng)
+        }
       }
+    },
+    popupopen: (e) => {
+      setBlock(true)
+    },
+    popupclose: (e) => {
+      setBlock(false)
     }
   });
 
@@ -32,30 +38,31 @@ export const CreateQuizMarker: FC<CreateQuizProps> = ({ type }) => {
   })
 
   const customRightIcon = new Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/6388/6388090.png",
+    iconUrl:  require('../../../shared/static/Location_Green.svg'),
     iconSize: [38, 38]
   })
 
   return (
     <>
-      {wrongMarkers.map((marker, i) => (
+      {points.map((marker, i) => (
         <Marker key={`marker-${i}`} icon={customWrongIcon} position={marker}>
           <Popup >
-            <span>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </span>
+           <Button onClick={() => deletePoint(marker)}>
+             Удалить точку
+           </Button>
           </Popup>
         </Marker>
       ))}
-      {marker.map((marker, i) => (
-        <Marker key={`marker-${i}`} icon={customRightIcon} position={marker}>
+      {answerLoc?.lat && (
+        <Marker icon={customRightIcon} position={answerLoc}>
           <Popup >
+            // Add delete point
             <span>
               A pretty CSS3 popup. <br /> Easily customizable.
             </span>
           </Popup>
         </Marker>
-      ))}
+      )}
     </>
   );
 };
