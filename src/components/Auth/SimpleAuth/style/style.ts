@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export const SimpleAuthLayout = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
-  width: '50%',
-  padding: '45px',
+  width: '100%',
+  padding: '0px 50px 50px 50px',
 }))
 
 export const Title = styled('div')(({ theme }) => ({
@@ -25,18 +25,19 @@ export const SimpleAuthButtonContainer = styled('div')`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 8px;
 `
 
 export const SimpleAuthButton = styled(Button)(({ theme }) => ({
   width: '100%',
-  background: theme.background.button,
-  boxShadow: theme.shadow.button,
-  '&:hover': {
-    backgroundColor: theme.background.buttonHover,
-    boxShadow: theme.shadow.buttonHover,
+  background: theme.button.secondary,
+  border: `1px solid ${theme.button.secondaryBorder}`,
+  color: theme.button.text,
+  ':hover': {
+    border: `1px solid transparent`,
+    background: theme.button.secondaryHover,
   },
-  transition: 'background-color 0.1s linear, box-shadow 0.1s linear',
+  transition: 'background-color 0.1s linear',
 }))
 
 export const OAuthLink = styled(Link)(({ theme }) => ({
