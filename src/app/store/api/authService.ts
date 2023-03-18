@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import $api, { API_URL } from '../../../shared/http'
+import { API_URL, $api } from '../../../shared/http'
 import { IUser } from '../../../shared/types/user'
 export default class AuthService {
   static async login(

@@ -4,6 +4,7 @@ import * as SnackbarActionCreators from './snackbar'
 import * as QuestionActionCreators from './question'
 import * as HelperActionCreators from './helper'
 import * as AnswerActionCreators from './answer'
+import * as QuizActionCreators from './quiz'
 
 export default {
   ...AuthActionCreators,
@@ -11,5 +12,6 @@ export default {
   ...SnackbarActionCreators,
   ...QuestionActionCreators,
   ...HelperActionCreators,
-  ...AnswerActionCreators
+  ...AnswerActionCreators,
+  ...QuizActionCreators,
 }

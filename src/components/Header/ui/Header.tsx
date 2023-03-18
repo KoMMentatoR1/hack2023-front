@@ -10,6 +10,7 @@ import { CustomListItemIcon } from '../../Profile/ProfileLayout/style/style'
 import { useNavigate } from 'react-router-dom'
 import { CreateQuestionButton } from '../../CreateQuestionButton'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
@@ -53,8 +54,18 @@ export const Header = () => {
           </ButtonContainer>
         </HeaderBox>
         <HeaderBox>
+          <ButtonContainer>
+            <IconButton
+              style={{ margin: '0 10px' }}
+              color='inherit'
+              onClick={() => {
+                navigator('/admin')
+              }}
+            >
+              <AdminPanelSettingsIcon fontSize='large' />
+            </IconButton>
+          </ButtonContainer>
           <CreateQuestionButton />
-
           <BaseThemeButton fontSize='30px' />
           <ButtonContainer>
             <IconButton

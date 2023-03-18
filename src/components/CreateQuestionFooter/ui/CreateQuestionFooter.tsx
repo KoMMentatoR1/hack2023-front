@@ -7,13 +7,16 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Pagination,
   Select,
   SelectChangeEvent,
   TextField,
-  Typography,
 } from '@mui/material'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 import { useAction } from '../../../shared/hooks/useAction'
+import { BaseSelect } from '../../base/base-select'
+import { FieldValues, useForm } from 'react-hook-form'
+import { BaseInput } from '../../base/base-input'
 
 export const CreateQuestionFooter = () => {
   const { type, correctAnswerText } = useTypeSelector(store => store.question)
@@ -34,6 +37,12 @@ export const CreateQuestionFooter = () => {
     mode === 'wrong' ? setMode('right') : setMode('wrong')
   }
 
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>()
+
   return (
     <Box
       sx={{
@@ -43,28 +52,48 @@ export const CreateQuestionFooter = () => {
     >
       <Container maxWidth='lg'>
         <Grid container direction='row' alignItems='center'>
-          <Grid item xs={3}>
-            <FormControl>
-              <InputLabel id='demo-simple-select-label'>Age</InputLabel>
-              <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                value={type.toString()}
-                label='Age'
-                onChange={handleChangeType}
-              >
-                <MenuItem value={1}>Угадай из списка</MenuItem>
-                <MenuItem value={2}>Угадай локацию</MenuItem>
-                <MenuItem value={3}>Угадай название</MenuItem>
-              </Select>
-            </FormControl>
+          <Grid item xs={2}>
+            <BaseSelect
+              rules={{
+                required: 'Необходимо выбрать тип задачи',
+              }}
+              required
+              error={errors.type ? true : false}
+              label='Тип задачи'
+              name='type'
+              options={[
+                'Угадай из списка',
+                'Угадай локацию',
+                'Угадай название',
+              ].map((option, index) => ({
+                label: option,
+                value: index + 1,
+              }))}
+              helperText={errors.type?.message as string}
+              control={control}
+            />
           </Grid>
           <Grid item xs={3}>
+            <Pagination count={1} color='primary' />
+          </Grid>
+          <Grid item xs={2}>
             {type === 1 ? (
               <Button onClick={handleChangeMode}>change {mode}</Button>
             ) : null}
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
+            <BaseInput
+              rules={{
+                required: 'Email address is required',
+              }}
+              required
+              error={errors.answer ? true : false}
+              label='Правильный ответ'
+              name='answer'
+              helperText={errors.answer?.message as string}
+              control={control}
+              defaultValue={correctAnswerText}
+            />
             <TextField
               required
               id='standard-required'
@@ -74,7 +103,7 @@ export const CreateQuestionFooter = () => {
               onChange={handleChangeAnswer}
             />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Button>submit</Button>
           </Grid>
         </Grid>
