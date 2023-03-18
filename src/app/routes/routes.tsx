@@ -5,7 +5,7 @@ import Profile from '../../pages/Profile/Profile'
 import ForgotPass from '../../pages/ForgotPass/ForgotPass'
 import SwitchPass from '../../pages/SwitchPass/SwitchPass'
 import MainPage from '../../pages/MainPage/MainPage'
-import QuizPage from '../../pages/QuizPage/QuizPage'
+import QuestionPage from '../../pages/QuestionPage/QuestionPage'
 import CreateQuestion from '../../pages/CreateQuestion/CreateQuestion'
 import { CreateQuiz } from '../../pages/CreateQuiz/CreateQuiz'
 
@@ -41,7 +41,7 @@ export const publicRoutes: Array<IRouter> = [
   },
   {
     path: '/quiz/:id',
-    element: <QuizPage />,
+    element: <QuestionPage />,
   },
   {
     path: '/createQuiz',
@@ -61,7 +61,7 @@ export const userRoutes: Array<IRouter> = [
   },
   {
     path: '/quiz/:id',
-    element: <QuizPage />,
+    element: <QuestionPage />,
   },
   {
     path: '/createQuiz',
