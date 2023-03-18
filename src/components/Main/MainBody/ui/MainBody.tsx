@@ -12,7 +12,7 @@ export const MainBody = () => {
         <Grid item xs={2} sm={4} md={4} key={index} display="flex" justifyContent="center">
           <Card sx={{ maxWidth: 400 }}>
             <CardMedia
-              sx={{ height: 140 }}
+              sx={{ height: 260 }}
               image="https://cdn2.tu-tu.ru/image/pagetree_node_data/1/5efb261d5644d99162d58489de94d41d/"
               title="green iguana"
             />
