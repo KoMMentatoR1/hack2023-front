@@ -7,6 +7,7 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Pagination,
   Select,
   SelectChangeEvent,
   TextField,
@@ -43,7 +44,7 @@ export const CreateQuestionFooter = () => {
     >
       <Container maxWidth='lg'>
         <Grid container direction='row' alignItems='center'>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <FormControl>
               <InputLabel id='demo-simple-select-label'>Age</InputLabel>
               <Select
@@ -59,12 +60,15 @@ export const CreateQuestionFooter = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={4}>
+            <Pagination count={10} color='primary' />
+          </Grid>
+          <Grid item xs={2}>
             {type === 1 ? (
               <Button onClick={handleChangeMode}>change {mode}</Button>
             ) : null}
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <TextField
               required
               id='standard-required'
@@ -74,7 +78,7 @@ export const CreateQuestionFooter = () => {
               onChange={handleChangeAnswer}
             />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Button>submit</Button>
           </Grid>
         </Grid>

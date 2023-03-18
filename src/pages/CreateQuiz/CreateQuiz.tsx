@@ -1,4 +1,5 @@
-import { useForm, FieldValues } from 'react-hook-form'
+import { useForm, FieldValues, SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { regionApi } from '../../app/store/api/regionApi'
 import { AuthButton } from '../../components/Auth/AuthButtonContainer'
 import {
@@ -9,6 +10,7 @@ import { BaseInput } from '../../components/base/base-input'
 import { BaseSelect } from '../../components/base/base-select'
 import { IOption } from '../../components/base/base-select/ui/BaseSelect'
 import { Header } from '../../components/Header'
+import { useAction } from '../../shared/hooks/useAction'
 
 export const CreateQuiz = () => {
   const {
@@ -17,9 +19,19 @@ export const CreateQuiz = () => {
     formState: { errors },
   } = useForm<FieldValues>()
 
-  const onSubmit = () => {}
+  const navigator = useNavigate()
+
+  const onSubmit: SubmitHandler<FieldValues> = data => {
+    createQuiz({
+      description: data.description,
+      regionId: data.regionId,
+      title: data.title,
+    })
+    navigator('/createQuestion')
+  }
 
   const { data: options } = regionApi.useGetAllRegionsQuery()
+  const { createQuiz } = useAction()
 
   return (
     <>
@@ -46,10 +58,10 @@ export const CreateQuiz = () => {
               required: 'Описание викторины не может быть пустым',
             }}
             required
-            error={errors.discription ? true : false}
+            error={errors.description ? true : false}
             label='Описание'
-            name='discription'
-            helperText={errors.discription?.message as string}
+            name='description'
+            helperText={errors.description?.message as string}
             control={control}
           />
           <BaseSelect
@@ -63,7 +75,7 @@ export const CreateQuiz = () => {
             options={
               options?.map(option => ({
                 label: option.title,
-                value: option.title,
+                value: option.id,
               })) || ([] as IOption[])
             }
             helperText={errors.title?.message as string}
@@ -77,7 +89,7 @@ export const CreateQuiz = () => {
             size='large'
             sx={{ mb: '50px' }}
           >
-            Создать квиз
+            Создать викторину
           </AuthButton>
         </FormContainer>
       </AuthPageLayout>

@@ -9,7 +9,7 @@ import { FC } from 'react'
 import { Controller, UseControllerProps } from 'react-hook-form'
 
 export interface IOption {
-  value: string
+  value: any
   label: string
 }
 
@@ -57,6 +57,7 @@ export const BaseSelect: FC<BaseInputProps> = ({
             value={value}
             onChange={onChange}
             label={label}
+            inputRef={ref}
             name={name}
           >
             <MenuItem value=''>
