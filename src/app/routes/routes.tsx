@@ -5,12 +5,10 @@ import Profile from '../../pages/Profile/Profile'
 import ForgotPass from '../../pages/ForgotPass/ForgotPass'
 import SwitchPass from '../../pages/SwitchPass/SwitchPass'
 import MainPage from '../../pages/MainPage/MainPage'
-import QuizPage from '../../pages/QuizPage/QuizPage'
-import CreateQuizPage from '../../pages/CreateQuizPage/CreateQuizPage'
-import AdminPage from '../../pages/AdminPage/AdminPage'
 import QuestionPage from '../../pages/QuestionPage/QuestionPage'
 import CreateQuestion from '../../pages/CreateQuestion/CreateQuestion'
 import { CreateQuiz } from '../../pages/CreateQuiz/CreateQuiz'
+import AdminPage from '../../pages/AdminPage/AdminPage'
 
 interface IRouter {
   path: string
@@ -63,10 +61,6 @@ export const userRoutes: Array<IRouter> = [
     element: <MainPage />,
   },
   {
-    path: '/admin',
-    element: <AdminPage />,
-  },
-  {
     path: '/quiz/:id',
     element: <QuestionPage />,
   },
@@ -81,6 +75,10 @@ export const userRoutes: Array<IRouter> = [
   {
     path: '/question/:uuid',
     element: <CreateQuestion />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
