@@ -7,6 +7,7 @@ import SwitchPass from '../../pages/SwitchPass/SwitchPass'
 import MainPage from '../../pages/MainPage/MainPage'
 import QuizPage from '../../pages/QuizPage/QuizPage'
 import CreateQuizPage from '../../pages/CreateQuizPage/CreateQuizPage'
+import AdminPage from '../../pages/AdminPage/AdminPage'
 
 interface IRouter {
   path: string
@@ -57,6 +58,10 @@ export const userRoutes: Array<IRouter> = [
   {
     path: '/main',
     element: <MainPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
   {
     path: '/quiz/:id',
