@@ -3,18 +3,18 @@ import { LatLng } from 'leaflet'
 
 export interface QuestionState {
   type: number
-  answerText?: string
-  answerLoc: LatLng
-  points: LatLng[]
+  correctAnswerText?: string
+  correctAnswerLoc: LatLng
+  geoPoints: LatLng[]
   previousQuestion: string
   nextQuestion: string
 }
 
 const initialState: QuestionState = {
   type: 2,
-  answerText: '',
-  answerLoc: {} as LatLng,
-  points: [],
+  correctAnswerText: '',
+  correctAnswerLoc: {} as LatLng,
+  geoPoints: [],
   previousQuestion: '',
   nextQuestion: '',
 }
@@ -24,7 +24,7 @@ export const questionSlice = createSlice({
   initialState,
   reducers: {
     setPoint(state, action: PayloadAction<LatLng>) {
-      state.points.length < 9 && state.points.push(action.payload)
+      state.geoPoints.length < 9 && state.geoPoints.push(action.payload)
     },
     setType(state, action: PayloadAction<number>) {
       if (action.payload >= 1 || action.payload <= 3) {
@@ -32,7 +32,7 @@ export const questionSlice = createSlice({
       }
     },
     deletePoint(state, action: PayloadAction<LatLng>) {
-      state.points = state.points.filter(
+      state.geoPoints = state.geoPoints.filter(
         point => {
           return point.lat !== action.payload.lat && point.lng !== action.payload.lng
           console.log("point: ", point)
@@ -40,19 +40,19 @@ export const questionSlice = createSlice({
         }
       )
     },
-    setAnswerText(state, action: PayloadAction<string>) {
-      state.answerText = action.payload
+    setCorrectAnswerText(state, action: PayloadAction<string>) {
+      state.correctAnswerText = action.payload
     },
-    setAnswerLoc(state, action: PayloadAction<LatLng>) {
-      state.answerLoc = action.payload
+    setCorrectAnswerLoc(state, action: PayloadAction<LatLng>) {
+      state.correctAnswerLoc = action.payload
     },
     setQuestion(state, action: PayloadAction<QuestionState>) {
       state = action.payload
     },
     clearData(state, action: PayloadAction<void>) {
-      state.answerText = ''
-      state.answerLoc = {} as LatLng
-      state.points = []
+      state.correctAnswerText = ''
+      state.correctAnswerLoc = {} as LatLng
+      state.geoPoints = []
     }
   },
 })
