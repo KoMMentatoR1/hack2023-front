@@ -30,7 +30,14 @@ export const CreateQuiz = () => {
     navigator('/createQuestion')
   }
 
-  const { data: options } = regionApi.useGetAllRegionsQuery()
+  // const { data: options } = regionApi.useGetAllRegionsQuery()
+  const options = [
+    { id: 1, title: 'Россия' },
+    { id: 2, title: 'Америка' },
+    { id: 3, title: 'Европа' },
+    { id: 4, title: 'Азия' },
+  ]
+
   const { createQuiz } = useAction()
 
   return (
