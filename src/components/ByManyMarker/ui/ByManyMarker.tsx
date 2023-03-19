@@ -2,6 +2,7 @@ import React, {FC, useState} from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
 import { Icon, LatLng } from 'leaflet'
 import { Button } from '@mui/material'
+import { useAction } from '../../../shared/hooks/useAction'
 
 interface ByManyMarkerProps {
   geoPoints: LatLng[],
@@ -9,6 +10,7 @@ interface ByManyMarkerProps {
 }
 
 export const ByManyMarker: FC<ByManyMarkerProps> = ({geoPoints, correctAnswer}) => {
+  const {addSnack} = useAction()
 
   const map = useMapEvents({
     click: (e) => {
@@ -27,9 +29,12 @@ export const ByManyMarker: FC<ByManyMarkerProps> = ({geoPoints, correctAnswer}) 
   })
 
   const chooseAnswer = (marker: LatLng) => {
-    // убрать и проверять на бэке
     const result = correctAnswer.lat !== marker.lat && correctAnswer.lng !== marker.lng
-    // Передача результата на бэк и переход к следующуему вопросу
+    if(result) {
+      addSnack("Увы, но это не правильный ответ", "error")
+    } else {
+      addSnack("Отлично! Вы явно разбираетесь в картах", "success")
+    }
   }
 
   return (

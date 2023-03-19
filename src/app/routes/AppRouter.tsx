@@ -1,4 +1,4 @@
-import { publicRoutes, userRoutes } from './routes'
+import { adminRoutes, publicRoutes, userRoutes } from './routes'
 import {
   Routes,
   Route,
@@ -54,8 +54,8 @@ const AppRouter = () => {
           return publicRoutes
         case 'USER':
           return userRoutes
-        case 'INACTIVE_USER':
-          return userRoutes
+        case 'ADMIN':
+          return adminRoutes
         default:
           return publicRoutes
       }

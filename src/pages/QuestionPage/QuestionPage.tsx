@@ -20,19 +20,16 @@ interface quizProps {
 const QuestionPage = () => {
   const { id } = useParams()
 
+  //temporary example
   const quiz: quizProps = {
-    type: 3,
+    type: 1,
     description: "Russia quiz",
     geoPoints: [
-      // {lat: 51.50948466888523, lng: -0.1454149846619446} as LatLng,
-      // {lat: 51.50478185285805, lng: -0.05994431120777577} as LatLng,
-      // {lat: 51.49002907705066, lng: -0.016350835188985172} as LatLng,
-      // {lat: 51.51472124771925, lng: -0.09255360429271109} as LatLng,
-      // {lat: 51.49783367652096, lng: -0.1987912486062338} as LatLng,
+      {lat: 51.51472124771925, lng: -0.09255360429271109} as LatLng,
+      {lat: 51.49783367652096, lng: -0.1987912486062338} as LatLng,
       {lat: 51.500217637960134, lng: -0.1241116699366307} as LatLng
     ],
     correctAnswer:
-      //"Red square"
       {lat: 51.500217637960134, lng: -0.1241116699366307}  as LatLng
   }
 
@@ -53,7 +50,7 @@ const QuestionPage = () => {
           }
         </MapBody>
       </MapLayout>
-      <QuestionFooter />
+      <QuestionFooter/>
     </BaseContainer>
   )
 }
