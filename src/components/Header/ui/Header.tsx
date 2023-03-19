@@ -1,13 +1,13 @@
+import { ToolbarStyled } from '../style/style'
 
-import { IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
 import {
-  ButtonContainer,
-  CustomAppBar,
-  HeaderBox,
-  ToolbarStyled,
-} from '../style/style'
-
-import { Grid, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+} from '@mui/material'
 import { ButtonContainer, CustomAppBar, HeaderBox } from '../style/style'
 
 import AccountCircle from '@mui/icons-material/AccountCircle'
@@ -26,20 +26,16 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { FC } from 'react'
 import Logo from '../../Logo'
 
+import ArtTrackIcon from '@mui/icons-material/ArtTrack'
+
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
   {
-    name: 'Пройденные тесты',
-    icon: <AccessTimeIcon />,
-    path: '/passedQuizzes',
+    name: 'Созданные викторины',
+    icon: <ArtTrackIcon />,
+    path: '/createdQuizes',
   },
-
-import ArtTrackIcon from '@mui/icons-material/ArtTrack';
-
-const menu = [
-  { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
-  { name: 'Созданные викторины', icon: <ArtTrackIcon />, path: '/createdQuizes' },
-{
+  {
     name: 'Пройденные тесты',
     icon: <AccessTimeIcon />,
     path: '/passedQuizzes',
