@@ -1,3 +1,4 @@
+
 import { IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
 import {
   ButtonContainer,
@@ -5,9 +6,13 @@ import {
   HeaderBox,
   ToolbarStyled,
 } from '../style/style'
+
+import { Grid, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { ButtonContainer, CustomAppBar, HeaderBox } from '../style/style'
+
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { BaseThemeButton } from '../../base/base-theme-button'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useAction } from '../../../shared/hooks/useAction'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LogoutIcon from '@mui/icons-material/Logout'
@@ -16,6 +21,7 @@ import { useNavigate } from 'react-router-dom'
 import { CreateQuestionButton } from '../../CreateQuestionButton'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
+
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { FC } from 'react'
 import Logo from '../../Logo'
@@ -23,6 +29,17 @@ import Logo from '../../Logo'
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
   {
+    name: 'Пройденные тесты',
+    icon: <AccessTimeIcon />,
+    path: '/passedQuizzes',
+  },
+
+import ArtTrackIcon from '@mui/icons-material/ArtTrack';
+
+const menu = [
+  { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
+  { name: 'Созданные викторины', icon: <ArtTrackIcon />, path: '/createdQuizes' },
+{
     name: 'Пройденные тесты',
     icon: <AccessTimeIcon />,
     path: '/passedQuizzes',

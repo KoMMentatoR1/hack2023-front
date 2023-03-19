@@ -49,12 +49,12 @@ export const CreateQuestionFooter = () => {
       <Container maxWidth='lg'>
         <Grid container direction='column' alignItems='center'>
           <FormControl fullWidth variant='standard'>
-            <InputLabel id='demo-simple-select-label'>Age</InputLabel>
+            <InputLabel id='demo-simple-select-label'>Тип викторины</InputLabel>
             <Select
               labelId='demo-simple-select-label'
               id='demo-simple-select'
               value={type.toString()}
-              label='Age'
+              label='Тип викторины'
               onChange={handleChangeType}
             >
               <MenuItem value={1}>Угадай из списка</MenuItem>
@@ -72,7 +72,7 @@ export const CreateQuestionFooter = () => {
           </Grid>
           <BaseInput
             rules={{
-              required: 'Email address is required',
+              required: 'Поле не должно быть пустым',
             }}
             required
             error={errors.answer ? true : false}
@@ -85,7 +85,7 @@ export const CreateQuestionFooter = () => {
           {type === 3 ? (
             <BaseInput
               rules={{
-                required: 'Email address is required',
+                required: 'Поле не должно быть пустым',
               }}
               required
               error={errors.answer ? true : false}
@@ -97,7 +97,7 @@ export const CreateQuestionFooter = () => {
             />
           ) : null}
           <Grid item xs={2} sx={{ marginTop: ' 15px' }}>
-            <Button>submit</Button>
+            <Button>Продолжить</Button>
           </Grid>
         </Grid>
       </Container>

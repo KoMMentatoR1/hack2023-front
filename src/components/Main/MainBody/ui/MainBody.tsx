@@ -9,28 +9,27 @@ import { CreatedQuiz } from '../../../../shared/types/quiz'
 export const MainBody = () => {
   const navigator = useNavigate()
 
-
-// temporary example of data from database
+  // temporary example of data from database
   const cards: CreatedQuiz[] = [
     {
       id: 1,
       title: "Russia",
-      description: "Проверь свои знания о карте России Проверь свои знания о карте России Проверь свои знания о карте России",
+      description: "Проверь свои знания о карте России, данная викторина содержит большинство регионов страны",
       user: "OlegB",
-      stars: 3,
-      plays: 156,
+      stars: 5,
+      plays: 2045,
       link: "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/5efb261d5644d99162d58489de94d41d/",
       finished: true,
       regionId: 123
     },
     {
-      id: 2,
-      title: "Russia2",
-      description: "Проверь свои знания о карте Москвы",
+      id: 5,
+      title: "Japan",
+      description: "Викторина по основным достопримечательностях Японии",
       user: "OlegB",
-      stars: 5,
-      plays: 156,
-      link: "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/5efb261d5644d99162d58489de94d41d/",
+      stars: 4,
+      plays: 677,
+      link: "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/6b2002a3dfd62f10ed5171e78f9db736/",
       finished: true,
       regionId: 123
     },
