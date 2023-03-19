@@ -12,7 +12,7 @@ export const setAnswerLoc =
     dispatch(answerSlice.actions.setAnswerLoc(answer))
   }
 
-export const clearData =
+export const clearAnswerData =
   () => (dispatch: AppDispatch) => {
     dispatch(answerSlice.actions.clearAnswerData())
   }
