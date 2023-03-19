@@ -82,6 +82,10 @@ export const userRoutes: Array<IRouter> = [
     path: '/createdQuizes',
     element: <CreatedQuizesPage />,
   },
+  {
+    path: '/passedQuizzes',
+    element: <PassedQuizzes />,
+  },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
 
