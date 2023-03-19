@@ -48,25 +48,20 @@ export const CreateQuestionFooter = () => {
     <FormWrapper>
       <Container maxWidth='lg'>
         <Grid container direction='column' alignItems='center'>
-          <BaseSelect
-            rules={{
-              required: 'Необходимо выбрать тип задачи',
-            }}
-            required
-            error={errors.type ? true : false}
-            label='Тип задачи'
-            name='type'
-            options={[
-              'Угадай из списка',
-              'Угадай локацию',
-              'Угадай название',
-            ].map((option, index) => ({
-              label: option,
-              value: index + 1,
-            }))}
-            helperText={errors.type?.message as string}
-            control={control}
-          />
+          <FormControl fullWidth variant='standard'>
+            <InputLabel id='demo-simple-select-label'>Age</InputLabel>
+            <Select
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
+              value={type.toString()}
+              label='Age'
+              onChange={handleChangeType}
+            >
+              <MenuItem value={1}>Угадай из списка</MenuItem>
+              <MenuItem value={2}>Угадай локацию</MenuItem>
+              <MenuItem value={3}>Угадай название</MenuItem>
+            </Select>
+          </FormControl>
           <Grid item xs={3} sx={{ margin: ' 15px 0' }}>
             <Pagination count={1} color='primary' />
           </Grid>
