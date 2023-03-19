@@ -71,6 +71,10 @@ export const userRoutes: Array<IRouter> = [
     element: <CreateQuiz />,
   },
   {
+    path: '/admin',
+    element: <AdminPage />,
+  },
+  {
     path: '/createQuestion',
     element: <CreateQuestion />,
   },

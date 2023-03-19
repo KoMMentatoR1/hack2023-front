@@ -27,6 +27,7 @@ import { FC } from 'react'
 import Logo from '../../Logo'
 
 import ArtTrackIcon from '@mui/icons-material/ArtTrack'
+import LogoWhite from '../../LogoWhite'
 
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },

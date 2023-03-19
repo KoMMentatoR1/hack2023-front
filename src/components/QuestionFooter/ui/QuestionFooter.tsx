@@ -21,7 +21,7 @@ export const QuestionFooter = () => {
           </Grid>
           <Grid item xs={3} sx={{ margin: ' 15px 0' }}>
             <Typography gutterBottom variant="h6" component="div" sx={{color: '#000000'}} align="center">
-              {answerText}
+              Найдите Биг-Бэн
             </Typography>
           </Grid>
           <Grid item xs={2} sx={{ marginTop: ' 15px' }}>
