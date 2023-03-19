@@ -46,9 +46,16 @@ export const publicRoutes: Array<IRouter> = [
     path: '/quiz/:id',
     element: <QuestionPage />,
   },
+  //!! remove route
   {
     path: '/createQuiz',
     element: <CreateQuiz />,
+  },
+
+  //!! remove route
+  {
+    path: '/createQuestion',
+    element: <CreateQuestion />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
