@@ -6,7 +6,7 @@ import { PaginationItem } from '../slices/paginationSlice'
 export class QuestionService {
   static async createNew({
     ballPerQuest,
-    currectAnswer,
+    correctAnswer,
     description,
     geoPoints,
     previousKey,
@@ -15,7 +15,7 @@ export class QuestionService {
   }: ICreateQuestion): Promise<AxiosResponse<PaginationItem>> {
     return $api2.post<PaginationItem>(`/quest/create`, {
       ballPerQuest,
-      currectAnswer,
+      correctAnswer,
       description,
       geoPoints,
       previousKey,

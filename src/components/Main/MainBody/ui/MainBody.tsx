@@ -2,16 +2,46 @@ import React from 'react'
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { QuizCard } from '../../../QuizCard'
+import { CreatedQuiz } from '../../../../shared/types/quiz'
+
+
 
 export const MainBody = () => {
   const navigator = useNavigate()
 
 
+// temporary example of data from database
+  const cards: CreatedQuiz[] = [
+    {
+      id: 1,
+      title: "Russia",
+      description: "Проверь свои знания о карте России Проверь свои знания о карте России Проверь свои знания о карте России",
+      user: "OlegB",
+      stars: 3,
+      plays: 156,
+      link: "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/5efb261d5644d99162d58489de94d41d/",
+      finished: true,
+      regionId: 123
+    },
+    {
+      id: 2,
+      title: "Russia2",
+      description: "Проверь свои знания о карте Москвы",
+      user: "OlegB",
+      stars: 5,
+      plays: 156,
+      link: "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/5efb261d5644d99162d58489de94d41d/",
+      finished: true,
+      regionId: 123
+    },
+  ]
+
+
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center" >
-      {Array.from(Array(6)).map((_, index) => (
+      {cards.map((card, index) => (
         <Grid item xs={2} sm={4} md={4} key={index} display="flex" justifyContent="center">
-          <QuizCard/>
+          <QuizCard card={card}/>
         </Grid>
       ))}
     </Grid>
