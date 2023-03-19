@@ -1,17 +1,17 @@
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { ButtonStyled } from '../style/style'
 
 export const CreateQuestionButton = () => {
   const navigator = useNavigate()
 
   return (
-    <Button
+    <ButtonStyled
       variant='contained'
       size='large'
       onClick={() => navigator('/createQuiz')}
-      sx={{ marginRight: '10px' }}
     >
       Создать викторину
-    </Button>
+    </ButtonStyled>
   )
 }

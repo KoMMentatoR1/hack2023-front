@@ -1,18 +1,18 @@
-import { AppBar, styled } from '@mui/material'
+import { AppBar, MenuItem,Toolbar, styled } from '@mui/material'
 
 export const CustomAppBar = styled(AppBar)(({ theme }) => ({
   position: 'sticky',
   backgroundColor: theme.background.main,
+  top: "0",
   boxShadow: 'none',
-  top:"0",
   transition: 'background .1s linear',
+  zIndex:"1000"
 }))
 
 export const HeaderBox = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   color: theme.text.primary,
-  margin: '0px 7% 0px 7%',
 }))
 
 export const ButtonContainer = styled('div')(({ theme }) => ({
@@ -21,4 +21,15 @@ export const ButtonContainer = styled('div')(({ theme }) => ({
     cursor: 'pointer',
   },
   transition: 'color .1s linear',
+}))
+export const MenuItemStyled = styled(MenuItem)(({ theme }) => ({
+  backgroundColor: theme.background.main,
+  color: theme.text.primary,
+}))
+
+export const ToolbarStyled = styled('div')(({ theme }) => ({
+  margin: "0 38px",  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding:"10px 0"
 }))

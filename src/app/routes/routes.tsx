@@ -9,6 +9,7 @@ import QuestionPage from '../../pages/QuestionPage/QuestionPage'
 import CreateQuestion from '../../pages/CreateQuestion/CreateQuestion'
 import { CreateQuiz } from '../../pages/CreateQuiz/CreateQuiz'
 import AdminPage from '../../pages/AdminPage/AdminPage'
+import PassedQuizzes from '../../pages/PassedQuizzes/PassedQuizzes'
 
 interface IRouter {
   path: string
@@ -79,6 +80,10 @@ export const userRoutes: Array<IRouter> = [
   {
     path: '/admin',
     element: <AdminPage />,
+  },
+  {
+    path: '/passedQuizzes',
+    element: <PassedQuizzes />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]

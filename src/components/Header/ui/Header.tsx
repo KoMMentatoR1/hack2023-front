@@ -1,5 +1,10 @@
 import { IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
-import { ButtonContainer, CustomAppBar, HeaderBox } from '../style/style'
+import {
+  ButtonContainer,
+  CustomAppBar,
+  HeaderBox,
+  ToolbarStyled,
+} from '../style/style'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { BaseThemeButton } from '../../base/base-theme-button'
 import { useState } from 'react'
@@ -11,12 +16,24 @@ import { useNavigate } from 'react-router-dom'
 import { CreateQuestionButton } from '../../CreateQuestionButton'
 import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import { FC } from 'react'
+import Logo from '../../Logo'
 
 const menu = [
   { name: 'Профиль', icon: <AccountCircleIcon />, path: '/Profile' },
+  {
+    name: 'Пройденные тесты',
+    icon: <AccessTimeIcon />,
+    path: '/passedQuizzes',
+  },
 ]
 
-export const Header = () => {
+interface HeaderProps {
+  position?: 'fixed' | 'absolute' | 'relative' | 'static' | 'sticky' | undefined
+}
+
+export const Header: FC<HeaderProps> = ({ position }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -39,8 +56,8 @@ export const Header = () => {
   }
 
   return (
-    <CustomAppBar position='static'>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+    <CustomAppBar position={position}>
+      <ToolbarStyled>
         <HeaderBox>
           <ButtonContainer>
             <Typography
@@ -49,7 +66,7 @@ export const Header = () => {
               variant='h6'
               noWrap
             >
-              Logo
+              <Logo />
             </Typography>
           </ButtonContainer>
         </HeaderBox>
@@ -75,7 +92,6 @@ export const Header = () => {
               aria-haspopup='true'
               color='inherit'
               onClick={handleClick}
-              sx={{ ml: 2 }}
               aria-controls={open ? 'account-menu' : undefined}
               aria-expanded={open ? 'true' : undefined}
             >
@@ -136,7 +152,7 @@ export const Header = () => {
             {user.user.id ? 'Выйти' : 'Войти'}
           </MenuItem>
         </Menu>
-      </Toolbar>
+      </ToolbarStyled>
     </CustomAppBar>
   )
 }
