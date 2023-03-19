@@ -10,4 +10,8 @@ export interface CreatedQuiz {
   title: string
   regionId: number
   description: string
+  user: string,
+  stars: number,
+  plays: number,
+  link: string
 }
