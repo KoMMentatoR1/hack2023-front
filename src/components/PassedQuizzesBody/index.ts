@@ -1,0 +1,1 @@
+export {PassedQuizzesBody} from './ui/PassedQuizzesBody'

@@ -9,6 +9,7 @@ import QuestionPage from '../../pages/QuestionPage/QuestionPage'
 import CreateQuestion from '../../pages/CreateQuestion/CreateQuestion'
 import { CreateQuiz } from '../../pages/CreateQuiz/CreateQuiz'
 import AdminPage from '../../pages/AdminPage/AdminPage'
+import PassedQuizzes from '../../pages/PassedQuizzes/PassedQuizzes'
 import CreatedQuizesPage from '../../pages/CreatedQuizesPage/CreatedQuizesPage'
 
 interface IRouter {
@@ -116,6 +117,10 @@ export const adminRoutes: Array<IRouter> = [
   {
     path: '/admin',
     element: <AdminPage />,
+  },
+  {
+    path: '/passedQuizzes',
+    element: <PassedQuizzes />,
   },
   { path: '*', element: <Navigate to='/main' replace /> },
 ]
