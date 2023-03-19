@@ -16,7 +16,7 @@ interface ByNameMarkerProps {
 export const ByNameMarker: FC<ByNameMarkerProps> = ({geoPoints, correctAnswer}) => {
   const [position, setPosition] = useState<LatLng |  null>(null)
   const {answerLoc} = useTypeSelector(state => state.answer)
-  const {setAnswerLoc} = useAction()
+  const {setAnswerLoc, addSnack} = useAction()
 
   const map = useMapEvents({
     click: (e) => {
@@ -24,6 +24,7 @@ export const ByNameMarker: FC<ByNameMarkerProps> = ({geoPoints, correctAnswer}) 
       setAnswerLoc(e.latlng)
       setPosition(correctAnswer)
       map.flyTo(correctAnswer, 13)
+      addSnack("Вы были близки к правильному ответу", "error")
     },
 
 

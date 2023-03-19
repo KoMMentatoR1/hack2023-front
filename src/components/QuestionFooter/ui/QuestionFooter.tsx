@@ -1,36 +1,34 @@
-import { Box, Container, Grid, Typography } from '@mui/material'
+import {
+  Button,
+  Container,
+  Grid,
+  Pagination,
+  Typography,
+} from '@mui/material'
+import { FormWrapper } from '../../CreateQuestionFooter/style/style'
+import React from 'react'
+import { useTypeSelector } from '../../../shared/hooks/useTypeSelector'
 
 export const QuestionFooter = () => {
-  const info = {
-    type: 1,
-    description: 'Red square',
-    geoPoints: {},
-  }
+  const {answerText} = useTypeSelector(state => state.answer)
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        height: 'auto',
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
-        backgroundColor: 'blue',
-      }}
-    >
+    <FormWrapper>
       <Container maxWidth='lg'>
-        <Grid container direction='row'>
-          <Grid item xs={4}>
-            <Typography color='black' variant='h5'>
-              React Starter App
+        <Grid container direction='column' alignItems='center'>
+          <Grid item xs={3} sx={{ margin: ' 15px 0' }}>
+            <Pagination count={20} defaultPage={5} color='primary' />
+          </Grid>
+          <Grid item xs={3} sx={{ margin: ' 15px 0' }}>
+            <Typography gutterBottom variant="h6" component="div" sx={{color: '#000000'}} align="center">
+              {answerText}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
-            <Typography color='textSecondary' variant='subtitle1'>
-              {`${new Date().getFullYear()} | React | Material UI | React Router`}
-            </Typography>
+          <Grid item xs={2} sx={{ marginTop: ' 15px' }}>
+            <Button>Продолжить</Button>
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </FormWrapper>
   )
 }
